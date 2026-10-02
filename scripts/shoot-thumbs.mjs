@@ -18,6 +18,7 @@ const SHOTS = [
     url: "https://larrybuckalew.github.io/larrybuckalew-consulting/",
   },
   { slug: "hero3d-landing", url: "https://larrybuckalew.github.io/hero3d-landing/" },
+  { slug: "nebula-demo", url: "https://larrybuckalew.github.io/nebula-demo/" },
 ];
 
 const dir = new URL("../assets/img/projects/", import.meta.url).pathname.replace(
