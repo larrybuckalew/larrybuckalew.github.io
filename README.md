@@ -31,6 +31,15 @@ scripts/
 3. Add the entry to `sitemap.xml`.
 4. Commit and push. Pages deploys within a minute or two.
 
+### Replacing an existing thumbnail
+
+If you overwrite a screenshot, bump the `?v=` query on that card's `img src`
+(`nebula-demo.jpg?v=2` → `?v=3`). The filename stays the same, so browsers keep
+serving the old bytes from cache and the change looks like it never landed.
+GitHub Pages sends `Cache-Control: max-age=600`, so it does self-heal in about
+ten minutes — but a query string makes it instant for everyone and avoids the
+confusion. Hard-refresh (`Ctrl+Shift+R`) works too, it just only fixes your copy.
+
 Cards with no live URL just leave the `.card__shot` link off and use a plain
 `.list` row in the "Also built" section instead.
 
