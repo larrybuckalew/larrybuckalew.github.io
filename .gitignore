@@ -1,3 +1,8 @@
 node_modules/
 *.log
 .DS_Store
+
+# Local QA scratch — throwaway Playwright checks and their screenshots.
+# Neither belongs in the repo; regenerate with scripts/shoot-thumbs.mjs.
+_check.mjs
+shots/
