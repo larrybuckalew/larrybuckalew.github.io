@@ -26,6 +26,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://larrybuckalew.github.io/neural-hero/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://larrybuckalew.github.io/larrybuckalew-consulting/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
