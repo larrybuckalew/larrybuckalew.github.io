@@ -52,6 +52,31 @@ const SHOTS = [
       await page.waitForTimeout(500);
     },
   },
+  {
+    // A simulation needs a state: fast-forward ~18 generations so the chart has
+    // a curve on it, then freeze on a frame where the field is spread out.
+    slug: "neuro-lab",
+    url: "https://larrybuckalew.github.io/neuro-lab/?seed=20261109",
+    prepare: async (page) => {
+      await page.addStyleTag({
+        content:
+          "#shell{width:100vw!important;height:100vh!important;aspect-ratio:auto!important;border-radius:0!important;box-shadow:none!important}",
+      });
+      await page.evaluate(() => {
+        const { sim, app } = window.__NEURO__;
+        for (let g = 0; g < 18; g++) {
+          let guard = 0;
+          while (!sim.genDone && guard++ < 5000) sim.step(1 / 60);
+          const n = sim.generation;
+          guard = 0;
+          while (sim.generation === n && guard++ < 600) sim.step(1 / 60);
+        }
+        for (let i = 0; i < 300; i++) sim.step(1 / 60);
+        app.paused = true;
+      });
+      await page.waitForTimeout(400);
+    },
+  },
 ];
 
 const dir = new URL("../assets/img/projects/", import.meta.url).pathname.replace(
