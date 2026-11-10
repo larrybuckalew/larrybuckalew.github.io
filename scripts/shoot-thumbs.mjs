@@ -122,3 +122,4 @@ for (const { slug, url, prepare } of SHOTS) {
 
 await browser.close();
 console.log("done");
+
