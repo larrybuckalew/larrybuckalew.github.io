@@ -64,6 +64,7 @@ const SHOTS = [
       });
       await page.evaluate(() => {
         const { sim, app } = window.__NEURO__;
+        app.dismissIntro(); // otherwise the explainer card ends up in the thumbnail
         for (let g = 0; g < 18; g++) {
           let guard = 0;
           while (!sim.genDone && guard++ < 5000) sim.step(1 / 60);
